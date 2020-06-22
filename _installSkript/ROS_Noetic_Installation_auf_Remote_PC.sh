@@ -1,8 +1,5 @@
 # Basiert auf ROS_Melodic_Installation_auf_Remote_PC.sh
 # von OJ fuer robotik.bocholt@w-hs.de
-# SS2020
-
-
 # ROS auf einem Rechner mit Ubuntu Focal 20.04 installieren
 # EMR SS2020 Hebinck, Heid
 
