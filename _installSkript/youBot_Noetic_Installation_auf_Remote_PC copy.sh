@@ -3,18 +3,17 @@
 # SS2020
 
 #!/bin/bash
-# script to setup youbot-Workspace
+# script to setup youbot-Workspace for ROS Noetic
+# EMR SS2020 Hebinck, Heid
 
 echo -e "\033[34m ---------- EMR SS20 - youBot Workspace einrichten  ------------ \033[0m "
 
 echo "Shellskript zur Installation der Treiber-Pakete" 
 
-sudo apt-get dist-upgrade
 pwd
 cd ~/catkin_ws/src/
 
-git clone https://github.com/ProfJust/emr
-
+git clone https://github.com/GeraldHebinck/emr -b noetic
 git clone https://github.com/youbot/youbot_navigation -b hydro-devel
 git clone https://github.com/youbot/youbot_driver -b hydro-devel
 git clone https://github.com/youbot/youbot_driver_ros_interface.git -b indigo-devel
@@ -47,15 +46,20 @@ sudo apt-get install ros-noetic-move-base -y
 git clone https://github.com/GeraldHebinck/pr2_common.git -b msg_only
 sudo apt-get install ros-noetic-joint-trajectory-controller -y
 
+# fuer Armsteuerung mit RQT
+sudo apt install ros-noetic-rqt-joint-trajectory-controller 
+
+
 cd ~/catkin_ws/src
 #echo -e "\033[34m Erstelle catkin_pkg \033[0m"
 #catkin_create_pkg emr std_msgs rospy roscpp
 
 echo -e "\033[34m Aktualisiere alle Abhaengigkeiten der ROS-Pakete \033[0m"
 rosdep update
-rosdep install --from-paths src --ignore-src -r -y
+rosdep install --from-paths . --ignore-src -r -y
 
-sudo setcap cap_net_raw+ep ~/catkin_ws/devel/lib/youbot_driver_ros_interface/youbot_driver_ros_interface
+# an dieser Stelle ist die Datei noch nicht vorhanden.
+# sudo setcap cap_net_raw+ep ~/catkin_ws/devel/lib/youbot_driver_ros_interface/youbot_driver_ros_interface
 
 echo -e "\033[34m add at bottom ~/catkin_ws/src/youbot_navigation/youbot_navigation_common/CMakeLists.txt \033[0m" 
 #Z14
@@ -82,5 +86,5 @@ cd ~/catkin_ws/
 catkin_make
 
 echo -e "\033[34m EMR - SS20 - Workspace is installed - have fun!  \033[0m"
-echo -e "\033[32m $ roslaunch emr youbot_emr_simulation.launch \033[0m"
+echo -e "\033[32m $ roslaunch emr_youbot youbot_emr_simulation_complete.launch \033[0m"
 
