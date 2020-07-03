@@ -26,7 +26,7 @@ sudo apt install ros-noetic-joint-trajectory-controller -y
 sudo apt install ros-noetic-rqt-joint-trajectory-controller # fuer Armsteuerung mit RQT
 
 git clone https://github.com/GeraldHebinck/emr -b noetic
-git clone https://github.com/GeraldHebinck/youbot_description.git -b noetic-devel # fork von https://github.com/youbot/youbot_navigation
+git clone https://github.com/GeraldHebinck/youbot_navigation.git -b noetic-devel # fork von https://github.com/youbot/youbot_navigation
 git clone https://github.com/youbot/youbot_driver -b hydro-devel
 git clone https://github.com/GeraldHebinck/youbot_driver_ros_interface.git -b noetic-devel # fork von git clone https://github.com/youbot/youbot_driver_ros_interface.git
 git clone https://github.com/GeraldHebinck/youbot_description.git -b noetic-devel # fork von https://github.com/mas-group/youbot_description.git
