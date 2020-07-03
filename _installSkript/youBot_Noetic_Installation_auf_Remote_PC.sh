@@ -26,13 +26,11 @@ sudo apt install ros-noetic-joint-trajectory-controller -y
 sudo apt install ros-noetic-rqt-joint-trajectory-controller # fuer Armsteuerung mit RQT
 
 git clone https://github.com/GeraldHebinck/emr -b noetic
-git clone https://github.com/youbot/youbot_navigation -b hydro-devel
+git clone https://github.com/GeraldHebinck/youbot_description.git -b noetic-devel # fork von https://github.com/youbot/youbot_navigation
 git clone https://github.com/youbot/youbot_driver -b hydro-devel
-git clone https://github.com/youbot/youbot_driver_ros_interface.git -b indigo-devel
-git clone https://github.com/GeraldHebinck/youbot_description.git -b jade-devel
-#Alternative? git clone https://github.com/mas-group/youbot_description.git
-git clone https://github.com/GeraldHebinck/youbot_simulation.git
-#Alternative? git clone https://github.com/mas-group/youbot_simulation.git
+git clone https://github.com/GeraldHebinck/youbot_driver_ros_interface.git -b noetic-devel # fork von git clone https://github.com/youbot/youbot_driver_ros_interface.git
+git clone https://github.com/GeraldHebinck/youbot_description.git -b noetic-devel # fork von https://github.com/mas-group/youbot_description.git
+git clone https://github.com/GeraldHebinck/youbot_simulation.git -b noetic-devel # fork von https://github.com/mas-group/youbot_simulation.git
 git clone https://github.com/wnowak/brics_actuator.git
 git clone https://github.com/pschillinger/youbot_integration.git
 git clone https://github.com/FlexBE/youbot_behaviors.git
@@ -44,16 +42,6 @@ git clone https://github.com/wnowak/youbot_moveit.git
 #cd catkin_ws/src/youbot_applications/
 #rm -r  android_app_pc_client
 #rm -r keyboard_remote_control
-
-echo -e "\033[42m editiere ~/catkin_ws/src/youbot_navigation/youbot_navigation_common/CMakeLists.txt \033[0m"
-## Ergaenze Zeilen in CMakeLists since catkin_make says ros.h was not found
-cd ~/catkin_ws/src/youbot_navigation/youbot_navigation_common/
-echo "## by OJ since ros.h was not found" >> CMakeLists.txt
-echo "INCLUDE_DIRECTORIES(" >> CMakeLists.txt
-echo "include" >> CMakeLists.txt
-#Avoid variable substitution with /var or 'var '
-echo "\${catkin_INCLUDE_DIRS}" >> CMakeLists.txt
-echo ")" >> CMakeLists.txt
 
 echo -e "\033[42m ---------- Aktualisiere alle Abhaengigkeiten der ROS-Pakete ---------- \033[0m"
 source ~/.bashrc
