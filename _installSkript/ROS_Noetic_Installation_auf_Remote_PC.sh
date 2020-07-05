@@ -34,7 +34,7 @@ echo "export ROS_MASTER_URI=http://localhost:11311" >> ~/.bashrc
 echo "# export ROS_MASTER_URI=http://192.168.0.40:11311" >> ~/.bashrc
 echo "## IP dieses Rechners " >> .bashrc
 echo "export ROS_HOSTNAME=127.0.0.1" >> ~/.bashrc
-echo "#export ROS_HOSTNAME=http://192.168.0.40:11311" >> ~/.bashrc
+echo "# export ROS_HOSTNAME=192.168.0.40" >> ~/.bashrc
 echo "### Ende ROS - Umgebungsvariablen ###" >> ~/.bashrc
 source ~/.bashrc # Damit source funktioniert, muss das Skript mit Bash und nicht mit SH ausgefuehrt werden
 
